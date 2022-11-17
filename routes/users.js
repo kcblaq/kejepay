@@ -2,9 +2,6 @@ var express = require('express');
 const Auth = require('../controller/auth');
 const { RegisterUser, GetUsers, SingleUser, LoginUser, Dashboard } = require('../controller/UserController');
 var router = express.Router();
-// const UserSchema = require("../models/reg")
-// const bcrypt = require('bcrypt');
-// const jwt = require('jsonwebtoken')
 
 const secret = process.env.TOKEN_SECRET
 
