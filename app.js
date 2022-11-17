@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const dotenv = require('dotenv');
 dotenv.config()
-var PORT = process.env.PORT 
+var PORT = process.env.PORT  || 5000
 const mongoose = require('mongoose');
 
 mongoose.connect(process.env.DB_CON, {useNewUrlParser: true})
