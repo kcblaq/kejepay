@@ -1,12 +1,14 @@
-const UserSchema = require("../models/reg");
+const UserSchema = require("../models/regSchema");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const dotenv = require('dotenv')
 dotenv.config()
 
+
+
 const secret = process.env.TOKEN_SECRET;
 exports.SingleUser = async(req,res) => {
-    const user = await UserSchema.findById(req.params.id)
+    const user = await  UserSchema.findById(req.params.id)
     if(!user){
         res.status(404).json({message:"User not found"})
         res.send("User not found")
@@ -53,7 +55,7 @@ exports.LoginUser = async(req,res) =>{
         if(!validPassword) {
             res.status(403).json({message:"Wrong email or password"})
         } else {
-            const token = jwt.sign({_id: user.id,email: user.email}, secret, {expiresIn: '3h'})
+            const token = jwt.sign({_id: user.id,email: user.email}, secret, {expiresIn: '6h'})
             res.header("auth-token", token).json({token, user})
         }
     } else {

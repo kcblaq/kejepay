@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const RegSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -17,6 +18,7 @@ const RegSchema = new mongoose.Schema({
 	phone: {
 		type: Number,
 		required: true,
+		unique: true
 	},
 	createdAt:{
 		type: Date,

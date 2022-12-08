@@ -5,7 +5,9 @@ var router = express.Router();
 
 const secret = process.env.TOKEN_SECRET
 
-
+router.get("/dashboard", Auth,  (req,res) => {
+    res.json({message: " Here is the dashboard"})
+} )
 
 //Single user fetch
 router.get("/:id", SingleUser )
@@ -21,9 +23,7 @@ router.post('/', RegisterUser)
 // User Login
 router.post("/login", LoginUser);
 
-router.get("/dashboard", Auth, (req,res) => {
-    res.json({message: " Here is the dashboard"})
-} )
+
 
 
 module.exports = router;
