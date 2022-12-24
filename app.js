@@ -9,7 +9,7 @@ var PORT = process.env.PORT  || 5000
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-mongoose.connect(process.env.DB_CON, {useNewUrlParser: true})
+mongoose.connect(process.env.TEMP_DB, {useNewUrlParser: true})
 .then(console.log("Connected to database"))
 .catch((error) =>console.log(error))
 
@@ -17,6 +17,7 @@ mongoose.connect(process.env.DB_CON, {useNewUrlParser: true})
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var transRouter = require('./routes/transRoute');
+var mailRouter = require('./routes/mailRoute');
 // var transactionRouter = require('./routes/transaction');
 
 var app = express();
@@ -32,6 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// app.use('/check', mailRouter)
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/trans', transRouter);

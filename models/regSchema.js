@@ -20,6 +20,7 @@ const RegSchema = new mongoose.Schema({
 		required: true,
 		unique: true
 	},
+	verified: Boolean,
 	createdAt:{
 		type: Date,
 		default: new Date
